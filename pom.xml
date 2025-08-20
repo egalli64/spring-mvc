@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>spring-boot</artifactId>
-	<version>5.8.0</version>
-	<name>Spring Boot Introduction</name>
-	<description>Companion code to my Spring Boot tutorial</description>
+	<artifactId>spring-mvc</artifactId>
+	<version>5.8.1</version>
+	<name>Spring Boot / Web MVC Introduction</name>
+	<description>Companion code to my Spring Boot / Web MVC tutorials</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

@@ -1,6 +1,6 @@
-# Spring Boot Tutorial
+# Spring Framework Web MVC Tutorial
 
-## Introduction to the Spring Framework
+## Introduction to
 
 - Spring Boot 3.5
-- Java 21
+- Spring Framework 6.2 - Web MVC
