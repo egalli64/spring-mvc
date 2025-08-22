@@ -1,7 +1,12 @@
-package com.example.sw;
+/*
+ * Spring Boot Web MVC tutorial 
+ * 
+ * https://github.com/egalli64/spring-mvc
+ */
+package com.example.swm;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,11 +14,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SwApplication {
-    private static Logger log = LoggerFactory.getLogger(SwApplication.class);
+public class SwmApplication {
+    private static Logger log = LogManager.getLogger(SwmApplication.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(SwApplication.class, args);
+        SpringApplication.run(SwmApplication.class, args);
     }
 
     @Bean
