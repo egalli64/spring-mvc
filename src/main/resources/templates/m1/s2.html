@@ -1,0 +1,24 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Accessing a coder</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>
+        Accessing coder <span th:text="${id}">42</span>
+    </h1>
+
+    <div th:if="${coder}">
+        <p th:text="${coder}">Coder info</p>
+    </div>
+    
+    <p><a href="/">Home</a></p>
+</body>
+</html>
