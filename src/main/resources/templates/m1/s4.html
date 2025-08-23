@@ -4,8 +4,9 @@
     https://github.com/egalli64/spring-mvc
  -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+<meta charset="UTF-8">
 <title>Accessing a coder</title>
 <link rel="icon" href="data:;base64,=">
 <link rel="stylesheet" type="text/css" href="/css/simple.css">
@@ -19,8 +20,6 @@
         <p th:text="${coder}">Coder info</p>
     </div>
 
-    <nav>
-        <a href="/">Home</a>
-    </nav>
+    <div th:replace="fragments :: myNav"></div>
 </body>
 </html>
