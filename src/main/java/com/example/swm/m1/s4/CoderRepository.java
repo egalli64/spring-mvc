@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s2;
+package com.example.swm.m1.s4;
 
 import java.util.Map;
 import java.util.Optional;
@@ -16,13 +16,13 @@ import org.springframework.stereotype.Repository;
  * A mock Spring Repository
  */
 @Repository
-public class CoderRepo {
-    private static Logger log = LogManager.getLogger(CoderRepo.class);
+public class CoderRepository {
+    private static Logger log = LogManager.getLogger(CoderRepository.class);
 
     /** mock table CODER */
     Map<Integer, Coder> coders = Map.of( //
-            103, new Coder(103, "Alexander", "Hunold", 8_993), //
-            107, new Coder(107, "Diana", "Lorentz", 8_997));
+            103, new Coder(103, "Alexander", "Hunold"), //
+            107, new Coder(107, "Diana", "Lorentz"));
 
     Optional<Coder> findById(Integer id) {
         log.traceEntry("findById({})", id);

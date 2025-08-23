@@ -3,24 +3,24 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s2;
+package com.example.swm.m1.s4;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 /**
- * A very simple Spring service
+ * A very simple Spring Service
  */
 @Service
-public class CoderSvc {
-    private static Logger log = LogManager.getLogger(CoderSvc.class);
+public class CoderService {
+    private static Logger log = LogManager.getLogger(CoderService.class);
 
     // A repository is used in this service, injected by Spring
-    private CoderRepo repo;
+    private CoderRepository repo;
 
     // implicit autowiring
-    public CoderSvc(CoderRepo repo) {
+    public CoderService(CoderRepository repo) {
         this.repo = repo;
     }
 
