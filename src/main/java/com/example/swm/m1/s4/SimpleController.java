@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s2;
+package com.example.swm.m1.s4;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,19 +14,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * A simple Spring MVC controller
+ * A simple Spring Web MVC Controller
  */
 @Controller
-@RequestMapping("/m1/s2")
-public class CoderCtr {
-    private static Logger log = LogManager.getLogger(CoderCtr.class);
+@RequestMapping("/m1/s4")
+public class SimpleController {
+    private static Logger log = LogManager.getLogger(SimpleController.class);
 
     // A service used in this controller, injected by Spring
-    private CoderSvc svc;
+    private CoderService svc;
 
     // implicit autowiring
-    public CoderCtr(CoderSvc svc) {
+    public SimpleController(CoderService svc) {
         this.svc = svc;
+    }
+
+    /**
+     * @GetMapping is a shortcut to @RequestMapping(method = RequestMethod.GET)
+     */
+    @GetMapping("/hello")
+    public String hello() {
+        log.traceEntry("hello()");
+
+        // forward to a static resource, not using the standard View Resolver
+        return "forward:/hello.html";
     }
 
     /**
@@ -48,6 +59,6 @@ public class CoderCtr {
         model.addAttribute("coder", coder);
 
         // tell the ViewResolver which templates to call
-        return "m1/s2";
+        return "m1/s4";
     }
 }
