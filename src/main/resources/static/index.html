@@ -31,13 +31,13 @@
 
     <h2>RequestParam to controller</h2>
     <ul>
-        <li><a href="/s6/hello?count=3">Plain parameter</a></li>
-        <li><a href="/s6/hello2?count=2">Name binding</a></li>
-        <li><a href="/s6/hello3">Not required</a></li>
-        <li><a href="/s6/hello4">Optional</a></li>
-        <li><a href="/s6/hello5">Default value (here, 3)</a></li>
-        <li><a href="/s6/hello6?xs=1&xs=2&xs=3">More values for a single parameter</a></li>
-        <li><a href="/s6/login.html">Using a form</a></li>
+        <li><a href="/m1/s6/param?count=3">Plain parameter</a> - must be provided</li>
+        <li><a href="/m1/s6/alias?count=2">Name binding</a></li>
+        <li><a href="/m1/s6/notRequired">Not required</a></li>
+        <li><a href="/m1/s6/optional">Optional</a></li>
+        <li><a href="/m1/s6/defaulted">Default value</a> - if not passed, 1 is assumed</li>
+        <li><a href="/m1/s6/array?xs=1&xs=2&xs=3">More values for a single parameter</a></li>
+        <li><a href="/m1/s6.html">Using a form</a> - no difference between get and post</li>
     </ul>
 
     <h2>Dependency Injection</h2>
