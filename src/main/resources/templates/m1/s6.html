@@ -1,0 +1,24 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Thymeleaf Spring View</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>Spring View by Thymeleaf</h1>
+    <div th:switch="${message}">
+	    <p th:case="${null}">No message specified</p>
+        <p th:case="''">Empty message specified</p>
+        <p th:case="*" th:text="${message}">The actual message</p>
+    </div>
+
+    <div th:replace="~{fragments :: myNav}"></div>
+</body>
+</html>
