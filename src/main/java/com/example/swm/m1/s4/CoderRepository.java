@@ -20,7 +20,7 @@ public class CoderRepository {
     private static Logger log = LogManager.getLogger(CoderRepository.class);
 
     /** mock table CODER */
-    Map<Integer, Coder> coders = Map.of( //
+    private final Map<Integer, Coder> coders = Map.of( //
             103, new Coder(103, "Alexander", "Hunold"), //
             107, new Coder(107, "Diana", "Lorentz"));
 
