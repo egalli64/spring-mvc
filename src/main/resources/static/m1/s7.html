@@ -1,0 +1,35 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>From form to DTO</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>From form to DTO</h1>
+
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+
+    <h2>No sensitive information - use GET</h2>
+    <form action="s7/info">
+        <input name="name" placeholder="name"> <input name="email" placeholder="name@example.com" type="email">
+        <button>OK</button>
+    </form>
+
+    <h2>Sensitive information - use POST</h2>
+    <form action="s7/login" method="post">
+        <input name="name" placeholder="name"> <input name="password" type="password">
+        <!-- PRG pattern -->
+        <input name="email" placeholder="name@example.com" type="email">
+        <button>OK</button>
+    </form>
+</body>
+</html>
