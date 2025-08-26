@@ -1,0 +1,35 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Info from @ModelAttribute</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>Info from @ModelAttribute</h1>
+
+    <p>
+        <span th:text="${message}">Message</span>, <span th:text="${user.name}">User name</span>!
+    </p>
+
+    <div th:if="${extra == true}">
+        <p>
+            You connected at <span th:text="${time}">12:23:45.67...</span>
+        </p>
+        <p>
+            Other online users are <span th:text="${users}">Ada, Bob, Dan</span>
+        </p>
+        <p>
+            Available teams are <span th:text="${teams}">X, Y, Z</span>
+        </p>
+    </div>
+
+    <div th:replace="~{fragments :: myNav}"></div>
+</body>
+</html>
