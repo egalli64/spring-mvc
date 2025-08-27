@@ -1,0 +1,38 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Mock Home Page /2</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>
+        Mock Home Page <em>(Session Attributes)</em>
+    </h1>
+
+    <div th:if="${user != null}">
+        <h2>
+            Hello <span th:text="${user}">User name</span>!
+        </h2>
+        <p>
+            <a href="/m1/s9/logout">logout</a>
+        </p>
+    </div>
+
+    <div th:if="${user == null}">
+        <h2>Please Login</h2>
+        <form action="login" method="post">
+            <label>Login <input name="user" placeholder="..." autofocus required></label>
+            <button>OK</button>
+        </form>
+    </div>
+
+    <div th:replace="~{fragments :: myNav}"></div>
+</body>
+</html>
