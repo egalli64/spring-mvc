@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s6;
+package com.example.swm.m1.s5;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/m1/s6")
+@RequestMapping("/m1/s5")
 public class ParamController {
     private static Logger log = LogManager.getLogger(ParamController.class);
 
@@ -32,7 +32,7 @@ public class ParamController {
         }
 
         model.addAttribute("message", "hello!".repeat(count));
-        return "m1/s6";
+        return "m1/s5";
     }
 
     @GetMapping("/alias")
@@ -45,7 +45,7 @@ public class ParamController {
         }
 
         model.addAttribute("message", "hello!".repeat(i));
-        return "m1/s6";
+        return "m1/s5";
     }
 
     @GetMapping("/notRequired")
@@ -61,7 +61,7 @@ public class ParamController {
             model.addAttribute("message", "hello!".repeat(count));
         }
 
-        return "m1/s6";
+        return "m1/s5";
     }
 
     @GetMapping("/optional")
@@ -79,7 +79,7 @@ public class ParamController {
             model.addAttribute("message", "");
         }
 
-        return "m1/s6";
+        return "m1/s5";
     }
 
     @GetMapping("/defaulted")
@@ -92,7 +92,7 @@ public class ParamController {
         }
 
         model.addAttribute("message", "hello!".repeat(count));
-        return "m1/s6";
+        return "m1/s5";
     }
 
     @GetMapping("/array")
@@ -100,7 +100,7 @@ public class ParamController {
         log.traceEntry("array({})", xs);
 
         model.addAttribute("message", "X values: " + Arrays.toString(xs));
-        return "m1/s6";
+        return "m1/s5";
     }
     
     @PostMapping("/login")
@@ -111,6 +111,6 @@ public class ParamController {
             model.addAttribute("name", user);
         }
 
-        return "m1/s6";
+        return "m1/s5";
     }
 }
