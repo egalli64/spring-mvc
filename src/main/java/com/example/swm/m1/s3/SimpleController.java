@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s4;
+package com.example.swm.m1.s3;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * A simple Spring Web MVC Controller
  */
 @Controller
-@RequestMapping("/m1/s4")
+@RequestMapping("/m1/s3")
 public class SimpleController {
     private static Logger log = LogManager.getLogger(SimpleController.class);
 
@@ -71,6 +71,6 @@ public class SimpleController {
         model.addAttribute("coder", coder);
 
         // tell the ViewResolver which templates to call
-        return "m1/s4";
+        return "m1/s3";
     }
 }

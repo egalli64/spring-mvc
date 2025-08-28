@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
-import com.example.swm.m1.s4.CoderRepository;
+import com.example.swm.m1.s3.CoderRepository;
 import com.example.swm.model.Region;
 
 @Repository

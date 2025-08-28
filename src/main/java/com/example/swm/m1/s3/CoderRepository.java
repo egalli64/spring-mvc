@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s4;
+package com.example.swm.m1.s3;
 
 import java.util.Map;
 import java.util.Optional;
