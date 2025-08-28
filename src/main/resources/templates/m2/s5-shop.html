@@ -13,7 +13,7 @@
 
     <h2>Add a product to your cart</h2>
     <div th:each="product : ${products}">
-        <form action="/m1/s9/add" method="post">
+        <form action="add" method="post">
             <input type="hidden" name="product" th:value="${product}">
             <button type="submit">
                 <span th:text="${product}">something</span>
@@ -24,7 +24,7 @@
     <h2>Your current cart</h2>
     <div th:if="${cart != null and !cart.isEmpty()}">
         <div th:each="item : ${cart}">
-            <form action="/m1/s9/remove" method="post" style="display: inline;">
+            <form action="remove" method="post" style="display: inline;">
                 <input type="hidden" name="product" th:value="${item}"> <span th:text="${item}"></span>
                 <button type="submit">Remove</button>
             </form>
@@ -32,7 +32,7 @@
         <p>
             Total items: <span th:text="${cart.size()}"></span>
         </p>
-        <a href="/m1/s9/clear">Clear Cart</a>
+        <a href="clear">Clear Cart</a>
     </div>
 
     <div th:if="${cart == null or cart.isEmpty()}">
