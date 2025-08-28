@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s7;
+package com.example.swm.m2.s2;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/m1/s7")
+@RequestMapping("/m2/s2")
 public class ModelAttrController {
     private static Logger log = LogManager.getLogger(ModelAttrController.class);
 
@@ -45,6 +45,6 @@ public class ModelAttrController {
         }
 
         model.addAttribute("message", "Hello");
-        return "m1/s7";
+        return "m2/s2";
     }
 }

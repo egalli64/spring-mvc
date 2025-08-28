@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s7;
+package com.example.swm.m2.s2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/m1/s7")
+@RequestMapping("/m2/s2")
 public class MockLoginController {
     private static Logger log = LogManager.getLogger(MockLoginController.class);
 
@@ -27,7 +27,7 @@ public class MockLoginController {
 
         model.addAttribute("message", "Hello");
         model.addAttribute("user", new User("Bob", "bob@example.com"));
-        return "m1/s7";
+        return "m2/s2";
     }
 
     @PostMapping("/login")
@@ -41,6 +41,6 @@ public class MockLoginController {
         }
 
         // Post-Redirect-Get pattern
-        return "redirect:/m1/s7/user";
+        return "redirect:/m2/s2/user";
     }
 }

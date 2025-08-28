@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m1.s7;
+package com.example.swm.m2.s2;
 
 /**
  * A simple JavaBean
