@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>spring-mvc</artifactId>
-	<version>5.8.3</version>
+	<version>5.8.4</version>
 	<name>Spring Boot / Web MVC Introduction</name>
 	<description>Companion code to my Spring Boot / Web MVC tutorials</description>
 	<properties>
@@ -27,6 +27,11 @@
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
 		<dependency>
