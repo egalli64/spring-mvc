@@ -1,0 +1,43 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Registration</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+<link rel="stylesheet" type="text/css" href="/css/error.css">
+</head>
+<body>
+    <h1>User Registration</h1>
+
+    <form action="/m2/s3" th:object="${user}" method="post">
+        <div>
+            <label>Name: </label><input type="text" th:field="*{name}"
+                th:classappend="${#fields.hasErrors('name')} ? 'input-error' : ''"><br>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></div>
+        </div>
+
+        <div>
+            <label>Email: <input type="email" th:field="*{email}"
+                th:classappend="${#fields.hasErrors('email')} ? 'input-error' : ''"></label><br>
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></div>
+        </div>
+
+        <div>
+            <label>Age: <input type="number" th:field="*{age}"
+                th:classappend="${#fields.hasErrors('age')} ? 'input-error' : ''"></label><br>
+            <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="error"></div>
+        </div>
+
+        <div th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}" class="error"></div>
+
+        <button type="submit">OK</button>
+    </form>
+    <div th:replace="~{fragments :: myNav}"></div>
+</body>
+</html>
