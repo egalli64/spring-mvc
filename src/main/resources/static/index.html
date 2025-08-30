@@ -25,9 +25,15 @@
 
     <h3>Request - Response</h3>
     <ul>
-        <li><a href="/m1/s3/hello">Plain request</a> - served by a Thymeleaf template</li>
-        <li><a href="/m1/s3/helloRaw">Plain request</a> - forwarded to a static HTML</li>
+        <li><a href="/m1/s3/hello">A simple request</a> - served by a Thymeleaf template</li>
         <li><a href="/m1/s3/coder?id=107">Getting a coder</a></li>
+    </ul>
+
+    <h3>Navigation: forward and redirect</h3>
+    <ul>
+        <li><a href="/m1/s4/hello-raw">Forward</a> to a static HTML</li>
+        <li><a href="/m1/s4/forwarder">Forward</a> to another controller handler</li>
+        <li><a href="/m1/s4.html">Redirect</a> - PRG Pattern</li>
     </ul>
 
     <h3>Data from controller to view</h3>
@@ -42,8 +48,8 @@
     <ul>
         <li><a href="/m1/s6/param?count=3">Plain parameter</a> - must be provided</li>
         <li><a href="/m1/s6/alias?count=2">Name binding</a></li>
-        <li><a href="/m1/s6/notRequired">Not required</a></li>
-        <li><a href="/m1/s6/optional">Optional</a></li>
+        <li><a href="/m1/s6/notRequired">Not required</a> - could be provided, or null</li>
+        <li><a href="/m1/s6/optional">Optional</a> - could be provided, or empty</li>
         <li><a href="/m1/s6/defaulted">Default value</a> - if not passed, 1 is assumed</li>
         <li><a href="/m1/s6/array?xs=1&xs=2&xs=3">More values for a single parameter</a></li>
         <li><a href="/m1/s6.html">Using a form</a> - no difference between get and post</li>
