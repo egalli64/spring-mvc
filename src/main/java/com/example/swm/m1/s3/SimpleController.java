@@ -29,7 +29,6 @@ public class SimpleController {
         this.svc = svc;
     }
 
-
     /**
      * @GetMapping is a shortcut to @RequestMapping(method = RequestMethod.GET)
      */
@@ -37,19 +36,8 @@ public class SimpleController {
     public String helloThymeleaf() {
         log.traceEntry("helloThymeleaf()");
 
-        // forward to a static resource, not using the standard View Resolver
+        // tell the ViewResolver which templates to call
         return "m1/hello";
-    }
-    
-    /**
-     * @GetMapping is a shortcut to @RequestMapping(method = RequestMethod.GET)
-     */
-    @GetMapping("/helloRaw")
-    public String helloRaw() {
-        log.traceEntry("helloRaw()");
-
-        // forward to a static resource, not using the standard View Resolver
-        return "forward:/m1/hello.html";
     }
 
     /**
