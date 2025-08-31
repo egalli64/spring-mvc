@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m3.s3;
+package com.example.swm.m3.s2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Thymeleaf Variable Expressions
  */
 @Controller
-@RequestMapping("/m3/s3")
+@RequestMapping("/m3/s2")
 public class VariableController {
     private static Logger log = LogManager.getLogger(VariableController.class);
 
@@ -28,6 +28,6 @@ public class VariableController {
         model.addAttribute("product", new Product("XYZ-42-J", 7));
         model.addAttribute("quantity", 6);
 
-        return "m3/s3";
+        return "m3/s2";
     }
 }
