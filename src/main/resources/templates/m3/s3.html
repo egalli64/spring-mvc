@@ -1,0 +1,24 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Variable Expressions</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>Variable Expressions</h1>
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+    <p>User name: <span th:text="${name}">Jonathan</span></p>
+    <p>Product name: <span th:text="${product.name}">A product name</span></p>
+    <p>Product info: <span th:text="${product.info()}">A product info</span></p>
+    <p>Due amount: <span th:text="${product.price * quantity}">42</span></p>
+</body>
+</html>
