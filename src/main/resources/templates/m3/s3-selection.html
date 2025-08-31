@@ -1,0 +1,42 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Variable Expressions</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>Selection Expressions</h1>
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+
+    <h2>Select an object and then use it</h2>
+
+    <div th:object="${user}">
+        <p>
+            Name: <span th:text="*{firstName}">John</span> <span th:text="*{lastName}">Doe</span>
+        </p>
+        <p>
+            Age: <span th:text="*{age}">99</span>
+        </p>
+    </div>
+    
+    <h2>Same, without selection expressions</h2>
+
+    <div>
+        <p>
+            Name: <span th:text="${user.firstName}">John</span> <span th:text="${user.lastName}">Doe</span>
+        </p>
+        <p>
+            Age: <span th:text="${user.age}">99</span>
+        </p>
+    </div>
+</body>
+</html>
