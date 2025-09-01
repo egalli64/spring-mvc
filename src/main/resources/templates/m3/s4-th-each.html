@@ -1,0 +1,39 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>th:each</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+</head>
+<body>
+    <h1>th:each</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+    </nav>
+
+    <h2>Each element in an ordered list</h2>
+    <ol>
+        <li th:each="user : ${users}">
+            <!--  --> <span th:text="${user.name + ', ' + user.active + ', ' + user.idle()}">Jo, true, true</span>
+        </li>
+    </ol>
+
+    <h2>Each element in a table (with count from status)</h2>
+    <table>
+        <tr th:each="user, stat : ${users}">
+            <td th:text="${stat.count}">1</td>
+            <td th:text="${user.name}">Jo</td>
+            <td th:text="${user.active}">True</td>
+            <td th:text="${user.admin}">True</td>
+            <td th:text="${user.idle()}">True</td>
+        </tr>
+    </table>
+
+</body>
+</html>
