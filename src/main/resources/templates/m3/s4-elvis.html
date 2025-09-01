@@ -1,0 +1,23 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Elvis operator</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+</head>
+<body>
+    <h1>Elvis operator</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+    </nav>
+    
+    <p>Welcome, <span th:text="${username ?: 'Guest'}">The user name</span>!</p>
+    <p>May I call you <span th:text="${nickname ?: 'Scooter'}">The user nickname</span>?</p>
+</body>
+</html>
