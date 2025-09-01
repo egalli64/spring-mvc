@@ -1,0 +1,37 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>th:if</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+</head>
+<body>
+    <h1>th:if</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+    </nav>
+
+    <!-- assuming user is always present -->
+    <div th:if="${user.admin}">
+        <p>
+            <span th:text="${user.name}"></span> is an administrator
+        </p>
+    </div>
+
+    <!-- more robust (albeit more complex) condition -->
+    <div th:if="${user != null and user.active}">
+        <p>Welcome back, active user!</p>
+    </div>
+
+    <!-- calling an object method in the condition -->
+    <div th:if="${user.idle()}">
+        <p>The user is currently idle</p>
+    </div>
+</body>
+</html>
