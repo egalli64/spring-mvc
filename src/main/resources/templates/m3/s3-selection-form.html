@@ -1,0 +1,32 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Selection Expressions (Form)</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+    <h1>Selection Expressions on a Form</h1>
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+
+    <h2>Select an object and then use its fields in a form</h2>
+
+    <form th:object="${user}" action="/m3/s3/save-user" method="post">
+        <label>First name: <input th:field="*{firstName}"></label>
+        <!--  -->
+        <label>Last name: <input th:field="*{lastName}"></label>
+        <!--  -->
+        <label>Age: <input type="number" size="5" th:field="*{age}"></label>
+
+        <button>OK</button>
+    </form>
+</body>
+</html>
