@@ -11,6 +11,10 @@ import java.util.concurrent.ThreadLocalRandom;
  * A simple DTO to be used in a Thymeleaf Standard Expression
  */
 public record User(String firstName, String lastName, int age) {
+    public User() {
+        this("", "", 0);
+    }
+
     public int pendingMessages() {
         // assume some real logic here
         return ThreadLocalRandom.current().nextInt(100);
