@@ -10,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -29,6 +31,33 @@ public class ExpressionController {
         return "m3/s3-selection";
     }
 
+    @GetMapping("/selection-form")
+    public String selectionForm(Model model) {
+        log.traceEntry("selectionForm()");
+
+        model.addAttribute("user", new User("Tom", "Smith", 42));
+
+        return "m3/s3-selection-form";
+    }
+
+    @GetMapping("/empty-form")
+    public String emptyForm(Model model) {
+        log.traceEntry("emptyForm()");
+
+        model.addAttribute("user", new User());
+
+        return "m3/s3-selection-form";
+    }
+
+    @PostMapping("/save-user")
+    public String form(@ModelAttribute User user) {
+        log.traceEntry("form({})", user);
+
+        // assume user is made persistent
+
+        return "redirect:/m3/s3/empty-form";
+    }
+    
     @GetMapping("/message")
     public String message(Model model) {
         log.traceEntry("message()");
