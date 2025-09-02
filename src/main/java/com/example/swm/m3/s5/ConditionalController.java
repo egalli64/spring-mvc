@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m3.s4;
+package com.example.swm.m3.s5;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Thymeleaf conditionals and iteration
  */
 @Controller
-@RequestMapping("/m3/s4")
+@RequestMapping("/m3/s5")
 public class ConditionalController {
     private static Logger log = LogManager.getLogger(ConditionalController.class);
 
@@ -28,7 +28,7 @@ public class ConditionalController {
 
         model.addAttribute("nickname", "Doc");
 
-        return "m3/s4-elvis";
+        return "m3/s5-elvis";
     }
 
     @GetMapping("/th-if")
@@ -37,7 +37,7 @@ public class ConditionalController {
 
         model.addAttribute("user", new User("Bob", true, true));
 
-        return "m3/s4-th-if";
+        return "m3/s5-th-if";
     }
 
     @GetMapping("/th-unless")
@@ -46,7 +46,7 @@ public class ConditionalController {
 
         model.addAttribute("user", new User("Bob", false, false));
 
-        return "m3/s4-th-unless";
+        return "m3/s5-th-unless";
     }
 
     @GetMapping("/th-each")
@@ -58,6 +58,6 @@ public class ConditionalController {
 
         model.addAttribute("users", users);
 
-        return "m3/s4-th-each";
+        return "m3/s5-th-each";
     }
 }

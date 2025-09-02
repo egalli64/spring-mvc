@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m3.s4;
+package com.example.swm.m3.s5;
 
 import java.util.concurrent.ThreadLocalRandom;
 
