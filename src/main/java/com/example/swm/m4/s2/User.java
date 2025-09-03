@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m2.s3;
+package com.example.swm.m4.s2;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;

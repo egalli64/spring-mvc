@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m2.s3;
+package com.example.swm.m4.s2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,33 +18,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/m2/s3")
-public class UserController {
-    private static Logger log = LogManager.getLogger(UserController.class);
+@RequestMapping("/m4/s2")
+public class ValidationController {
+    private static Logger log = LogManager.getLogger(ValidationController.class);
 
     @GetMapping("/new")
     public String showForm(Model model) {
         log.traceEntry("showForm()");
         model.addAttribute("user", new User());
-        return "m2/s3-form";
+        return "m4/s2-form";
     }
 
     @PostMapping
     public String create(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
         log.traceEntry("create()");
         if (bindingResult.hasErrors()) {
-            return "m2/s3-form";
+            return "m4/s2-form";
         }
 
         // TODO: store the user
         log.info("Validated user created: {}", user);
 
-        return "redirect:/m2/s3/success";
+        return "redirect:/m4/s2/success";
     }
 
     @GetMapping("/success")
     public String success() {
         log.traceEntry("success()");
-        return "m2/s3-success";
+        return "m4/s2-success";
     }
 }
