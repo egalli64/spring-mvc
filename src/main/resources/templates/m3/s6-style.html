@@ -1,0 +1,35 @@
+<!--
+    Spring Boot Web MVC tutorial 
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Style-based attributes</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" th:href="@{/css/simple.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style-attribs.css}">
+</head>
+<body>
+    <h1>Style-based attributes</h1>
+
+    <h2>Using the attribute th:class</h2>
+    <!-- the original class is overridden -->
+    <p class="msg-color" th:class="${active} ? 'active' : 'inactive'">
+        The status is <span th:text="${active} ? 'active' : 'inactive'">the status</span>
+    </p>
+
+    <h2>Using the attribute th:classappend</h2>
+    <!-- the original class is still there -->
+    <p class="msg-color" th:classappend="${active} ? 'active' : 'inactive'">
+        The status is <span th:text="${active} ? 'active' : 'inactive'">the status</span>
+    </p>
+
+    <h2>Using the attribute th:style</h2>
+    <p th:style="'color: ' + ${color}">Styled text</p>
+
+    <div th:replace="~{fragments :: myNav}"></div>
+</body>
+</html>
