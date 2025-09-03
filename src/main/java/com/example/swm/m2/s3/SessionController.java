@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m2.s4;
+package com.example.swm.m2.s3;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/m2/s4")
+@RequestMapping("/m2/s3")
 public class SessionController {
     private static Logger log = LogManager.getLogger(SessionController.class);
 
@@ -29,7 +29,7 @@ public class SessionController {
         } else {
             session.setAttribute("user", user);
         }
-        return "m2/s4";
+        return "m2/s3";
     }
 
     @GetMapping("/guest")
@@ -38,13 +38,13 @@ public class SessionController {
 
         session.setAttribute("user", "Guest");
 
-        return "m2/s4";
+        return "m2/s3";
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         log.traceEntry("logout()");
         session.invalidate();
-        return "m2/s4";
+        return "m2/s3";
     }
 }
