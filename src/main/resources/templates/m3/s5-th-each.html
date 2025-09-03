@@ -13,9 +13,6 @@
 </head>
 <body>
     <h1>th:each</h1>
-    <nav>
-        <a th:href="@{/}">Home</a>
-    </nav>
 
     <h2>Each element in an ordered list</h2>
     <ol>
@@ -35,5 +32,6 @@
         </tr>
     </table>
 
+    <div th:replace="~{fragments :: myNav}"></div>
 </body>
 </html>

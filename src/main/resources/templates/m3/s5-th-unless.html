@@ -13,9 +13,6 @@
 </head>
 <body>
     <h1>th:unless</h1>
-    <nav>
-        <a th:href="@{/}">Home</a>
-    </nav>
 
     <!-- assuming user is always present -->
     <div th:unless="${user.admin}">
@@ -33,5 +30,7 @@
     <div th:unless="${user.idle()}">
         <p>The user is currently not idle</p>
     </div>
+
+    <div th:replace="~{fragments :: myNav}"></div>
 </body>
 </html>

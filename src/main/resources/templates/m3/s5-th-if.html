@@ -13,9 +13,6 @@
 </head>
 <body>
     <h1>th:if</h1>
-    <nav>
-        <a th:href="@{/}">Home</a>
-    </nav>
 
     <!-- assuming user is always present -->
     <div th:if="${user.admin}">
@@ -33,5 +30,7 @@
     <div th:if="${user.idle()}">
         <p>The user is currently idle</p>
     </div>
+
+    <div th:replace="~{fragments :: myNav}"></div>
 </body>
 </html>

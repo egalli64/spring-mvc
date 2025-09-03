@@ -14,7 +14,19 @@
 <body>
     <h1>Link Expressions</h1>
     <nav>
-        <a th:href="@{/}">Home</a>
+        <a th:href="@{/}">Home</a> <em>(link in a th:href attribute)</em>
     </nav>
+
+    <h2>Link in a th:src attribute</h2>
+    <figure>
+        <img alt="A blue block" th:src="@{/img/blue.jpg}">
+        <figcaption>An image with a safe source</figcaption>
+    </figure>
+
+    <h2>Link in a th:action attribute</h2>
+    <form th:action="@{/m3/s3/link-feedback}" method="post">
+        <input name="name" value="Bob">
+        <button>OK</button>
+    </form>
 </body>
 </html>

@@ -13,11 +13,10 @@
 </head>
 <body>
     <h1>Elvis operator</h1>
-    <nav>
-        <a th:href="@{/}">Home</a>
-    </nav>
     
     <p>Welcome, <span th:text="${username ?: 'Guest'}">The user name</span>!</p>
     <p>May I call you <span th:text="${nickname ?: 'Scooter'}">The user nickname</span>?</p>
+
+    <div th:replace="~{fragments :: myNav}"></div>
 </body>
 </html>
