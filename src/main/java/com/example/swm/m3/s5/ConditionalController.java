@@ -23,8 +23,8 @@ public class ConditionalController {
     private static Logger log = LogManager.getLogger(ConditionalController.class);
 
     @GetMapping("/elvis")
-    public String selection(Model model) {
-        log.traceEntry("selection()");
+    public String elvis(Model model) {
+        log.traceEntry("elvis()");
 
         model.addAttribute("nickname", "Doc");
 
