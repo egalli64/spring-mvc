@@ -1,0 +1,15 @@
+/* 
+    Introduction to Spring Web
+    https://github.com/egalli64/sw
+ */
+.active {
+	background-color: lime;
+}
+
+.inactive {
+	background-color: red;
+}
+
+.msg-color {
+	color: white;
+}
