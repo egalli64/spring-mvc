@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m2.s5;
+package com.example.swm.m2.s4;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 @SessionAttributes("user")
-@RequestMapping("/m2/s5")
+@RequestMapping("/m2/s4")
 public class HomeController {
     private static Logger log = LogManager.getLogger(HomeController.class);
 
@@ -32,7 +32,7 @@ public class HomeController {
         }
 
         model.addAttribute("user", user);
-        return "m2/s5-home";
+        return "m2/s4-home";
     }
 
     @GetMapping("/guest")
@@ -41,7 +41,7 @@ public class HomeController {
 
         model.addAttribute("user", "Guest");
 
-        return "m2/s5-home";
+        return "m2/s4-home";
     }
 
     @GetMapping("/logout")
@@ -50,6 +50,6 @@ public class HomeController {
 
         status.setComplete();
         model.addAttribute("user", null);
-        return "m2/s5-home";
+        return "m2/s4-home";
     }
 }

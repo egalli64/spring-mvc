@@ -3,7 +3,7 @@
  * 
  * https://github.com/egalli64/spring-mvc
  */
-package com.example.swm.m2.s5;
+package com.example.swm.m2.s4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 @SessionAttributes("cart")
-@RequestMapping("/m2/s5")
+@RequestMapping("/m2/s4")
 public class CartController {
     private static Logger log = LogManager.getLogger(CartController.class);
 
@@ -41,7 +41,7 @@ public class CartController {
         log.traceEntry("shop()");
         model.addAttribute("products", PRODUCTS);
 
-        return "m2/s5-shop";
+        return "m2/s4-shop";
     }
 
     @PostMapping("/add")
@@ -49,7 +49,7 @@ public class CartController {
         log.traceEntry("add({})", product);
 
         cart.add(product);
-        return "redirect:/m2/s5/shop";
+        return "redirect:/m2/s4/shop";
     }
 
     @PostMapping("/remove")
@@ -57,7 +57,7 @@ public class CartController {
         log.traceEntry("remove({})", product);
 
         cart.remove(product);
-        return "redirect:/m2/s5/shop";
+        return "redirect:/m2/s4/shop";
     }
 
     @GetMapping("/clear")
@@ -67,6 +67,6 @@ public class CartController {
         status.setComplete();
         model.addAttribute("cart", null);
 
-        return "redirect:/m2/s5/shop";
+        return "redirect:/m2/s4/shop";
     }
 }
