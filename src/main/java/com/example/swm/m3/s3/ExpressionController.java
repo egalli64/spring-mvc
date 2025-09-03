@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Thymeleaf Standard Expressions
@@ -57,7 +58,7 @@ public class ExpressionController {
 
         return "redirect:/m3/s3/empty-form";
     }
-    
+
     @GetMapping("/message")
     public String message(Model model) {
         log.traceEntry("message()");
@@ -73,4 +74,12 @@ public class ExpressionController {
 
         return "m3/s3-link";
     }
+
+    @PostMapping("/link-feedback")
+    public String linkFeedback(@RequestParam String name) {
+        log.traceEntry("linkFeedback({})", name);
+
+        return "redirect:/";
+    }
+
 }
