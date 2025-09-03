@@ -15,7 +15,7 @@
 <body>
     <h1>User Registration</h1>
 
-    <form action="/m2/s3" th:object="${user}" method="post">
+    <form action="/m4/s2" th:object="${user}" method="post">
         <div>
             <label>Name: </label><input type="text" th:field="*{name}"
                 th:classappend="${#fields.hasErrors('name')} ? 'input-error' : ''"><br>
