@@ -1,39 +1,35 @@
 /*
- * Spring Boot Web MVC tutorial 
- * 
+ * Spring Boot Web MVC tutorial
+ *
  * https://github.com/egalli64/spring-mvc
  */
 package com.example.swm.m1.s3;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * A very simple Spring Service
  */
 @Service
 public class CoderService {
-    private static Logger log = LogManager.getLogger(CoderService.class);
+    private static final Logger log = LoggerFactory.getLogger(CoderService.class);
 
     // A repository is used in this service, injected by Spring
-    private CoderRepository repo;
+    private final CoderRepository repo;
 
     // implicit autowiring
     public CoderService(CoderRepository repo) {
         this.repo = repo;
     }
 
-    public Coder getCoder(Integer id) {
-        log.traceEntry("getCoder({})", id);
+    // at the moment the service layer is just a pass-through to the repository
+    public Optional<Coder> getCoder(Integer id) {
+        log.trace("Enter getCoder({})", id);
 
-        var opt = repo.findById(id);
-
-        if (opt.isEmpty()) {
-            log.warn("Can't find coder {}", id);
-            return null;
-        } else {
-            return opt.get();
-        }
+        return repo.findById(id);
     }
 }
