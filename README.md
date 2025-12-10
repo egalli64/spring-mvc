@@ -2,5 +2,6 @@
 
 ## Introduction to
 
-- Spring Boot 3.5
-- Spring Framework 6.2 - Web MVC
+- Spring Boot 4
+- Spring Framework 7 - Web MVC
+- Thymeleaf 3
