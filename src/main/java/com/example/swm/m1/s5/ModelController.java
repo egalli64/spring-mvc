@@ -5,8 +5,8 @@
  */
 package com.example.swm.m1.s5;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/m1/s5")
 public class ModelController {
-    private static Logger log = LogManager.getLogger(ModelController.class);
+    private static final Logger log = LoggerFactory.getLogger(ModelController.class);
 
     @GetMapping("/hello")
     public String helloModel(Model model) {
