@@ -5,8 +5,8 @@
  */
 package com.example.swm.m2.s4;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +20,11 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("user")
 @RequestMapping("/m2/s4")
 public class HomeController {
-    private static Logger log = LogManager.getLogger(HomeController.class);
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
     @PostMapping("/login")
     public String login(@RequestParam String user, Model model) {
-        log.traceEntry("login({})", user);
+        log.trace("Enter login({})", user);
 
         if (user.isBlank()) {
             log.warn("default user used");
@@ -37,7 +37,7 @@ public class HomeController {
 
     @GetMapping("/guest")
     public String guest(Model model) {
-        log.traceEntry("guest()");
+        log.trace("Enter guest()");
 
         model.addAttribute("user", "Guest");
 
@@ -46,7 +46,7 @@ public class HomeController {
 
     @GetMapping("/logout")
     public String logout(SessionStatus status, Model model) {
-        log.traceEntry("logout()");
+        log.trace("Enter logout()");
 
         status.setComplete();
         model.addAttribute("user", null);
