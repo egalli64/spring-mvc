@@ -1,19 +1,15 @@
 /*
- * Spring Boot Web MVC tutorial 
- * 
+ * Spring Boot Web MVC tutorial
+ *
  * https://github.com/egalli64/spring-mvc
  */
 package com.example.swm.m3.s3;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Thymeleaf Standard Expressions
@@ -21,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/m3/s3")
 public class ExpressionController {
-    private static Logger log = LogManager.getLogger(ExpressionController.class);
+    private static final Logger log = LoggerFactory.getLogger(ExpressionController.class);
 
     @GetMapping("/selection")
     public String selection(Model model) {
-        log.traceEntry("selection()");
+        log.trace("Enter selection()");
 
         model.addAttribute("user", new User("Tom", "Smith", 42));
 
@@ -34,7 +30,7 @@ public class ExpressionController {
 
     @GetMapping("/selection-form")
     public String selectionForm(Model model) {
-        log.traceEntry("selectionForm()");
+        log.trace("Enter selectionForm()");
 
         model.addAttribute("user", new User("Tom", "Smith", 42));
 
@@ -43,7 +39,7 @@ public class ExpressionController {
 
     @GetMapping("/empty-form")
     public String emptyForm(Model model) {
-        log.traceEntry("emptyForm()");
+        log.trace("Enter emptyForm()");
 
         model.addAttribute("user", new User());
 
@@ -52,7 +48,7 @@ public class ExpressionController {
 
     @PostMapping("/save-user")
     public String form(@ModelAttribute User user) {
-        log.traceEntry("form({})", user);
+        log.trace("Enter form({})", user);
 
         // assume user is made persistent
 
@@ -61,7 +57,7 @@ public class ExpressionController {
 
     @GetMapping("/message")
     public String message(Model model) {
-        log.traceEntry("message()");
+        log.trace("Enter message()");
 
         model.addAttribute("user", new User("Tom", "Smith", 42));
 
@@ -70,16 +66,15 @@ public class ExpressionController {
 
     @GetMapping("/link")
     public String link() {
-        log.traceEntry("link()");
+        log.trace("Enter link()");
 
         return "m3/s3-link";
     }
 
     @PostMapping("/link-feedback")
     public String linkFeedback(@RequestParam String name) {
-        log.traceEntry("linkFeedback({})", name);
+        log.trace("Enter linkFeedback({})", name);
 
         return "redirect:/";
     }
-
 }
