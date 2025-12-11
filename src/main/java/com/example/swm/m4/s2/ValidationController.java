@@ -5,8 +5,8 @@
  */
 package com.example.swm.m4.s2;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,18 +20,18 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/m4/s2")
 public class ValidationController {
-    private static Logger log = LogManager.getLogger(ValidationController.class);
+    private static final Logger log = LoggerFactory.getLogger(ValidationController.class);
 
     @GetMapping("/new")
     public String showForm(Model model) {
-        log.traceEntry("showForm()");
+        log.trace("Enter showForm()");
         model.addAttribute("user", new User());
         return "m4/s2-form";
     }
 
     @PostMapping
-    public String create(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
-        log.traceEntry("create()");
+    public String create(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+        log.trace("Enter create()");
         if (bindingResult.hasErrors()) {
             return "m4/s2-form";
         }
@@ -44,7 +44,7 @@ public class ValidationController {
 
     @GetMapping("/success")
     public String success() {
-        log.traceEntry("success()");
+        log.trace("Enter success()");
         return "m4/s2-success";
     }
 }
