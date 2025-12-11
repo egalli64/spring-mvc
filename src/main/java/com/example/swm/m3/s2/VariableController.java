@@ -5,8 +5,8 @@
  */
 package com.example.swm.m3.s2;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/m3/s2")
 public class VariableController {
-    private static Logger log = LogManager.getLogger(VariableController.class);
+    private static final Logger log = LoggerFactory.getLogger(VariableController.class);
 
     @GetMapping("/variable")
     public String variable(Model model) {
-        log.traceEntry("variable()");
+        log.trace("Enter variable()");
 
         model.addAttribute("name", "Tom");
         model.addAttribute("product", new Product("XYZ-42-J", 7));
