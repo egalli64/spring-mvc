@@ -7,8 +7,8 @@ package com.example.swm.m3.s1;
 
 import java.time.LocalDateTime;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/m3/s1")
 public class WelcomeController {
-    private static Logger log = LogManager.getLogger(WelcomeController.class);
+    private static final Logger log = LoggerFactory.getLogger(WelcomeController.class);
 
     @GetMapping("/welcome")
     public String welcome(@RequestParam(required = false) String name, Model model) {
-        log.traceEntry("welcome({})", name);
+        log.trace("Enter welcome({})", name);
 
         if (name == null || name.isEmpty()) {
             name = "Guest";
