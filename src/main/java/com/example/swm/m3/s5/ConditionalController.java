@@ -7,8 +7,8 @@ package com.example.swm.m3.s5;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/m3/s5")
 public class ConditionalController {
-    private static Logger log = LogManager.getLogger(ConditionalController.class);
+    private static final Logger log = LoggerFactory.getLogger(ConditionalController.class);
 
     @GetMapping("/elvis")
     public String elvis(Model model) {
-        log.traceEntry("elvis()");
+        log.trace("Enter elvis()");
 
         model.addAttribute("nickname", "Doc");
 
@@ -33,7 +33,7 @@ public class ConditionalController {
 
     @GetMapping("/th-if")
     public String thIf(Model model) {
-        log.traceEntry("thIf()");
+        log.trace("Enter thIf()");
 
         model.addAttribute("user", new User("Bob", true, true));
 
@@ -42,7 +42,7 @@ public class ConditionalController {
 
     @GetMapping("/th-unless")
     public String thUnless(Model model) {
-        log.traceEntry("thUnless()");
+        log.trace("Enter thUnless()");
 
         model.addAttribute("user", new User("Bob", false, false));
 
@@ -51,7 +51,7 @@ public class ConditionalController {
 
     @GetMapping("/th-each")
     public String thEach(Model model) {
-        log.traceEntry("thEach()");
+        log.trace("Enter thEach()");
 
         var users = List.of(new User("Al", true, false), new User("Bob", false, false), new User("Cy", false, true));
         log.debug("Users are {}", users);
