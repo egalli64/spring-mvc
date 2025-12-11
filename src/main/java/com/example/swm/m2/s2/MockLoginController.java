@@ -5,8 +5,8 @@
  */
 package com.example.swm.m2.s2;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/m2/s2")
 public class MockLoginController {
-    private static Logger log = LogManager.getLogger(MockLoginController.class);
+    private static final Logger log = LoggerFactory.getLogger(MockLoginController.class);
 
     @GetMapping("/user")
     public String user(Model model) {
-        log.traceEntry("user()");
+        log.trace("Enter user()");
 
         // get the user, extract the required information, put them in the model
 
@@ -31,8 +31,8 @@ public class MockLoginController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute User user, Model model) {
-        log.traceEntry("login({})", user);
+    public String login(@ModelAttribute User user) {
+        log.trace("Enter login({})", user);
 
         if (user.getPassword() == null) {
             log.warn("Bad, we need to validate user!");

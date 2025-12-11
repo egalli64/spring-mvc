@@ -9,8 +9,8 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/m2/s2")
 public class ModelAttrController {
-    private static Logger log = LogManager.getLogger(ModelAttrController.class);
+    private static final Logger log = LoggerFactory.getLogger(ModelAttrController.class);
 
     @ModelAttribute
     public void extraInfo(Model model) {
@@ -36,7 +36,7 @@ public class ModelAttrController {
 
     @GetMapping("/info")
     public String info(@ModelAttribute User user, Model model) {
-        log.traceEntry("info({})", user);
+        log.trace("Enter info({})", user);
 
         if (user.getPassword() == null) {
             log.info("Good, no password should be passed by HTTP GET");
