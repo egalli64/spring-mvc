@@ -15,16 +15,22 @@
 <h1>Contacts</h1>
 
 <form method="get" action="/hs/contacts">
-    <label for="id">Contact ID</label>
-    <input id="id" name="id" th:value="${id ?: ''}">
+    <label for="name">Contact name</label>
+    <input id="name" name="name" th:value="${name ?: ''}">
     <button>Search</button>
 </form>
 
 <ul>
     <li th:each="contact : ${contacts}">
-        <span th:text="${contact.id + ': ' + contact.name}">42: Tony</span>
+        <span th:text="${contact.name + ': ' + contact.phone}">Tony: 1234</span>
+        <a th:href="@{/hs/contacts/{name}/edit(id=${contact.name})}">Edit</a>
+        <a th:href="@{/hs/contacts/{name}(id=${contact.name})}">View</a>
     </li>
 </ul>
+
+<p>
+    <a href="/hs/contacts/new">Add Contact</a>
+</p>
 
 <div th:replace="~{fragments :: myNav}"></div>
 </body>

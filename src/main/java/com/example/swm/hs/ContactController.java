@@ -38,18 +38,25 @@ public class ContactController {
     }
 
     @GetMapping("/contacts")
-    public String contacts(@RequestParam(required = false) Long id, Model model) {
-        log.trace("Enter contacts({})", id);
+    public String contacts(@RequestParam(required = false) String name, Model model) {
+        log.trace("Enter contacts({})", name);
 
-        if (id == null) {
+        if (name == null) {
             model.addAttribute("contacts", svc.getContacts());
         } else {
             List<Contact> contacts = new ArrayList<>(1);
-            svc.getContact(id).ifPresent(contacts::add);
+            svc.getContact(name).ifPresent(contacts::add);
             model.addAttribute("contacts", contacts);
-            model.addAttribute("id", id);
+            model.addAttribute("name", name);
         }
 
         return "hs/contacts";
+    }
+
+    @GetMapping("/contacts/new")
+    public String newContact() {
+        log.trace("Enter newContact()");
+
+        return "hs/new";
     }
 }

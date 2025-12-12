@@ -13,8 +13,8 @@ import java.util.Optional;
  */
 public interface ContactRepository {
     Contact save(Contact contact);
-    Optional<Contact> findById(Long id);
+    Optional<Contact> findByName(String name);
     List<Contact> findAll();
-    void deleteById(Long id);
+    void deleteByName(String name);
     void deleteAll();
 }

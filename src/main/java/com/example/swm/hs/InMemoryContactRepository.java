@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * A simple mockingly concrete repository
@@ -24,12 +23,10 @@ public class InMemoryContactRepository implements ContactRepository {
     private static final Logger log = LoggerFactory.getLogger(InMemoryContactRepository.class);
 
     // mock the persistence level
-    private final Map<Long, Contact> coders;
-    private final AtomicLong seq;
+    private final Map<String, Contact> coders;
 
     public InMemoryContactRepository() {
         this.coders = new ConcurrentHashMap<>();
-        this.seq = new AtomicLong(0);
 
         // preload mock data
         preload();
@@ -38,28 +35,25 @@ public class InMemoryContactRepository implements ContactRepository {
     private void preload() {
         log.trace("Enter preload()");
 
-        var contact = save(new Contact("Bob"));
+        var contact = save(new Contact("Bob", "4242"));
         log.debug("Preload contact: {}", contact);
 
-        contact = save(new Contact("Tom"));
+        contact = save(new Contact("Tom", "2134"));
         log.debug("Preload contact: {}", contact);
     }
 
     @Override
     public Contact save(Contact contact) {
         log.trace("save({})", contact);
-        if (contact.getId() == null) {
-            contact.setId(seq.incrementAndGet());
-        }
 
-        coders.put(contact.getId(), contact);
+        coders.put(contact.getName(), contact);
         return contact;
     }
 
     @Override
-    public Optional<Contact> findById(Long id) {
-        log.trace("findById({})", id);
-        return Optional.ofNullable(coders.get(id));
+    public Optional<Contact> findByName(String name) {
+        log.trace("findByName({})", name);
+        return Optional.ofNullable(coders.get(name));
     }
 
     @Override
@@ -69,9 +63,9 @@ public class InMemoryContactRepository implements ContactRepository {
     }
 
     @Override
-    public void deleteById(Long id) {
-        log.trace("deleteById({})", id);
-        coders.remove(id);
+    public void deleteByName(String name) {
+        log.trace("deleteByName({})", name);
+        coders.remove(name);
     }
 
     @Override

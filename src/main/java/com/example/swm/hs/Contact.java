@@ -9,24 +9,12 @@ package com.example.swm.hs;
  * A simple JavaBean
  */
 public class Contact {
-    private Long id;
     private String name;
+    private String phone;
 
-    public Contact(Long id, String name) {
-        this.id = id;
+    public Contact(String name, String phone) {
         this.name = name;
-    }
-
-    public Contact(String name) {
-        this(null, name);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -37,11 +25,19 @@ public class Contact {
         this.name = name;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Contact{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

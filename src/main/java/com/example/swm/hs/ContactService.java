@@ -25,10 +25,10 @@ public class ContactService {
         this.repo = repo;
     }
 
-    public Optional<Contact> getContact(Long id) {
-        log.trace("Enter getContact({})", id);
+    public Optional<Contact> getContact(String name) {
+        log.trace("Enter getContact({})", name);
 
-        return repo.findById(id);
+        return repo.findByName(name);
     }
 
     public List<Contact> getContacts() {
