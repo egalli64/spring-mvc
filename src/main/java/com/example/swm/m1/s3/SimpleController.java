@@ -48,7 +48,7 @@ public class SimpleController {
      * @return the name of the associated view
      */
     @GetMapping("/coder")
-    public String coder(@RequestParam Integer id, Model model) {
+    public String coder(@RequestParam Long id, Model model) {
         log.trace("Enter coders()");
 
         // using the service to get the coders

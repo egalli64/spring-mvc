@@ -27,7 +27,7 @@ public class CoderService {
     }
 
     // at the moment the service layer is just a pass-through to the repository
-    public Optional<Coder> getCoder(Integer id) {
+    public Optional<Coder> getCoder(Long id) {
         log.trace("Enter getCoder({})", id);
 
         return repo.findById(id);

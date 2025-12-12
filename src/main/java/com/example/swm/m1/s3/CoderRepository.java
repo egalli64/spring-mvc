@@ -22,11 +22,11 @@ public class CoderRepository {
     /**
      * mock table CODER
      */
-    private final Map<Integer, Coder> coders = Map.of( //
-            103, new Coder(103, "Alexander", "Hunold"), //
-            107, new Coder(107, "Diana", "Lorentz"));
+    private final Map<Long, Coder> coders = Map.of( //
+            103L, new Coder(103L, "Alexander", "Hunold"), //
+            107L, new Coder(107L, "Diana", "Lorentz"));
 
-    Optional<Coder> findById(Integer id) {
+    Optional<Coder> findById(Long id) {
         log.trace("Enter findById({})", id);
 
         return Optional.ofNullable(coders.get(id));
