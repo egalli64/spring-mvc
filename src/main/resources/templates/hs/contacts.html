@@ -1,0 +1,31 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+<h1>Contacts</h1>
+
+<form method="get" action="/hs/contacts">
+    <label for="id">Contact ID</label>
+    <input id="id" name="id" th:value="${id ?: ''}">
+    <button>Search</button>
+</form>
+
+<ul>
+    <li th:each="contact : ${contacts}">
+        <span th:text="${contact.id + ': ' + contact.name}">42: Tony</span>
+    </li>
+</ul>
+
+<div th:replace="~{fragments :: myNav}"></div>
+</body>
+</html>
