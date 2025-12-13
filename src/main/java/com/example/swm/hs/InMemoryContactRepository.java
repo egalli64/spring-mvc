@@ -23,10 +23,10 @@ public class InMemoryContactRepository implements ContactRepository {
     private static final Logger log = LoggerFactory.getLogger(InMemoryContactRepository.class);
 
     // mock the persistence level
-    private final Map<String, Contact> coders;
+    private final Map<String, Contact> contacts;
 
     public InMemoryContactRepository() {
-        this.coders = new ConcurrentHashMap<>();
+        this.contacts = new ConcurrentHashMap<>();
 
         // preload mock data
         preload();
@@ -46,31 +46,40 @@ public class InMemoryContactRepository implements ContactRepository {
     public Contact save(Contact contact) {
         log.trace("save({})", contact);
 
-        coders.put(contact.getName(), contact);
+        contacts.put(contact.getName(), contact);
         return contact;
     }
 
     @Override
     public Optional<Contact> findByName(String name) {
         log.trace("findByName({})", name);
-        return Optional.ofNullable(coders.get(name));
+        return Optional.ofNullable(contacts.get(name));
     }
 
     @Override
     public List<Contact> findAll() {
         log.trace("findAll()");
-        return new ArrayList<>(coders.values());
+        return new ArrayList<>(contacts.values());
+    }
+
+    @Override
+    public List<Contact> findContaining(String sub) {
+        log.trace("findContaining({})", sub);
+
+        return contacts.entrySet().stream()
+                .filter(entry -> entry.getKey().contains(sub))
+                .map(Map.Entry::getValue).toList();
     }
 
     @Override
     public void deleteByName(String name) {
         log.trace("deleteByName({})", name);
-        coders.remove(name);
+        contacts.remove(name);
     }
 
     @Override
     public void deleteAll() {
         log.trace("deleteAll()");
-        coders.clear();
+        contacts.clear();
     }
 }
