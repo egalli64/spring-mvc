@@ -36,4 +36,10 @@ public class ContactService {
 
         return repo.findAll();
     }
+
+    public List<Contact> search(String sub) {
+        log.trace("Enter search({})", sub);
+
+        return repo.findContaining(sub);
+    }
 }

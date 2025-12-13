@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A simple Spring Web MVC Controller
  */
@@ -38,16 +35,14 @@ public class ContactController {
     }
 
     @GetMapping("/contacts")
-    public String contacts(@RequestParam(required = false) String name, Model model) {
-        log.trace("Enter contacts({})", name);
+    public String contacts(@RequestParam(required = false) String query, Model model) {
+        log.trace("Enter contacts({})", query);
 
-        if (name == null) {
+        if (query == null) {
             model.addAttribute("contacts", svc.getContacts());
         } else {
-            List<Contact> contacts = new ArrayList<>(1);
-            svc.getContact(name).ifPresent(contacts::add);
-            model.addAttribute("contacts", contacts);
-            model.addAttribute("name", name);
+            model.addAttribute("contacts", svc.search(query));
+            model.addAttribute("query", query);
         }
 
         return "hs/contacts";
