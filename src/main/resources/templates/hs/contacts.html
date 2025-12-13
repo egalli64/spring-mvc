@@ -15,8 +15,8 @@
 <h1>Contacts</h1>
 
 <form method="get" action="/hs/contacts">
-    <label for="name">Contact name</label>
-    <input id="name" name="name" th:value="${name ?: ''}">
+    <label for="name">Contacts with name containing</label>
+    <input id="name" name="query" th:value="${query ?: ''}">
     <button>Search</button>
 </form>
 
