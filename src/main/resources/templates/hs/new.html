@@ -1,0 +1,33 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Contact</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+<h1>New Contact</h1>
+
+<form action="/contacts/new" method="post">
+    <p>
+        <label for="name">Name</label>
+        <input name="name" id="name" placeholder="Name" required th:value="${contact.name ?: ''}">
+    </p>
+    <p>
+        <label for="phone">Phone</label>
+        <input name="phone" id="phone" type="text" placeholder="Phone" required th:value="${contact.phone ?: ''}">
+    </p>
+    <button>Save</button>
+</form>
+<p>
+    <a href="/hs/contacts">Contacts</a>
+</p>
+
+</body>
+</html>

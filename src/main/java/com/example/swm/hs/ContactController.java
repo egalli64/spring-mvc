@@ -49,8 +49,10 @@ public class ContactController {
     }
 
     @GetMapping("/contacts/new")
-    public String newContact() {
+    public String newContact(Model model) {
         log.trace("Enter newContact()");
+
+        model.addAttribute("contact", new Contact());
 
         return "hs/new";
     }
