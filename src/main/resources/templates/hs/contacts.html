@@ -23,8 +23,8 @@
 <ul>
     <li th:each="contact : ${contacts}">
         <span th:text="${contact.name + ': ' + contact.phone}">Tony: 1234</span>
-        <a th:href="@{/hs/contacts/{name}/edit(id=${contact.name})}">Edit</a>
-        <a th:href="@{/hs/contacts/{name}(id=${contact.name})}">View</a>
+        <a th:href="@{/hs/contacts/{id}/edit(id=${contact.id})}">Edit</a>
+        <a th:href="@{/hs/contacts/{id}(id=${contact.id})}">View</a>
     </li>
 </ul>
 

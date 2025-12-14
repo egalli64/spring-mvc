@@ -13,9 +13,9 @@ import java.util.Optional;
  */
 public interface ContactRepository {
     Contact save(Contact contact);
-    Optional<Contact> findByName(String name);
+    Optional<Contact> find(Long id);
     List<Contact> findAll();
     List<Contact> findContaining(String sub);
-    void deleteByName(String name);
+    void delete(Long id);
     void deleteAll();
 }

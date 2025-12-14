@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * A simple mockingly concrete repository
@@ -23,10 +24,13 @@ public class InMemoryContactRepository implements ContactRepository {
     private static final Logger log = LoggerFactory.getLogger(InMemoryContactRepository.class);
 
     // mock the persistence level
-    private final Map<String, Contact> contacts;
+    private final Map<Long, Contact> contacts;
+    private final AtomicLong seq;
+
 
     public InMemoryContactRepository() {
         this.contacts = new ConcurrentHashMap<>();
+        this.seq = new AtomicLong(0);
 
         // preload mock data
         preload();
@@ -46,14 +50,18 @@ public class InMemoryContactRepository implements ContactRepository {
     public Contact save(Contact contact) {
         log.trace("save({})", contact);
 
-        contacts.put(contact.getName(), contact);
+        if (contact.getId() == null) {
+            contact.setId(seq.incrementAndGet());
+        }
+
+        contacts.put(contact.getId(), contact);
         return contact;
     }
 
     @Override
-    public Optional<Contact> findByName(String name) {
-        log.trace("findByName({})", name);
-        return Optional.ofNullable(contacts.get(name));
+    public Optional<Contact> find(Long id) {
+        log.trace("find({})", id);
+        return Optional.ofNullable(contacts.get(id));
     }
 
     @Override
@@ -66,15 +74,13 @@ public class InMemoryContactRepository implements ContactRepository {
     public List<Contact> findContaining(String sub) {
         log.trace("findContaining({})", sub);
 
-        return contacts.entrySet().stream()
-                .filter(entry -> entry.getKey().contains(sub))
-                .map(Map.Entry::getValue).toList();
+        return contacts.values().stream().filter(x -> x.getName().contains(sub)).toList();
     }
 
     @Override
-    public void deleteByName(String name) {
-        log.trace("deleteByName({})", name);
-        contacts.remove(name);
+    public void delete(Long id) {
+        log.trace("delete({})", id);
+        contacts.remove(id);
     }
 
     @Override
