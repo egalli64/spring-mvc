@@ -5,12 +5,16 @@
  */
 package com.example.swm.hs;
 
+import jakarta.validation.constraints.NotBlank;
+
 /**
  * A simple JavaBean
  */
 public class Contact {
     private Long id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String phone;
 
     public Contact() {
