@@ -25,6 +25,10 @@ public class ContactService {
         this.repo = repo;
     }
 
+    public Contact save(Contact contact) {
+        return repo.save(contact);
+    }
+
     public Optional<Contact> getContact(Long id) {
         log.trace("Enter getContact({})", id);
 
