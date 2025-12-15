@@ -14,14 +14,14 @@
 <body>
 <h1>New Contact</h1>
 
-<form action="/contacts/new" method="post">
+<form action="/hs/contacts/new" th:object="${contact}" method="post">
     <p>
-        <label for="name">Name</label>
-        <input name="name" id="name" placeholder="Name" required th:value="${contact.name ?: ''}">
+        <label>Name <input placeholder="Name" th:field="*{name}"></label>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     </p>
     <p>
-        <label for="phone">Phone</label>
-        <input name="phone" id="phone" type="text" placeholder="Phone" required th:value="${contact.phone ?: ''}">
+        <label>Phone <input placeholder="Phone" th:field="*{phone}"></label>
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
     </p>
     <button>Save</button>
 </form>
