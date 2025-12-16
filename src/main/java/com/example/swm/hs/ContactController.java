@@ -73,4 +73,12 @@ public class ContactController {
             return "redirect:/hs/contacts";
         }
     }
+
+    @GetMapping("/contacts/{id}")
+    public String viewContact(@PathVariable Long id, Model model) {
+        log.trace("Enter viewContact({})", id);
+
+        model.addAttribute("contact", svc.getContact(id).orElse(null));
+        return "hs/view";
+    }
 }

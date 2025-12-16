@@ -1,0 +1,32 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Contact</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+<h1>View Contact</h1>
+
+<div th:if="${contact != null}">
+    <div>Name: <span th:text="${contact.name}">Bob</span></div>
+    <div>Phone: <span th:text="${contact.phone}">1234</span></div>
+</div>
+
+<div th:if="${contact == null}">
+    <span>No contact information available</span>
+</div>
+
+<p>
+    <a th:if="${contact != null}" th:href="@{/hs/contacts/{id}/edit(id=${contact.id})}">Edit</a>
+    <a href="/hs/contacts">Contacts</a>
+</p>
+
+</body>
+</html>
