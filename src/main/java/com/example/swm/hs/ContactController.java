@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * A simple Spring Web MVC Controller
@@ -56,10 +57,11 @@ public class ContactController {
     }
 
     /**
-     * Post - Validate - Redisplay
+     * Post - Validate - Redisplay (if validation fails)
+     * Post - Redirect - Get (in case of success)
      */
     @PostMapping("/contacts/new")
-    public String submitForm(@Valid @ModelAttribute Contact contact, BindingResult br) {
+    public String submitForm(@Valid @ModelAttribute Contact contact, BindingResult br, RedirectAttributes ra) {
         log.trace("Enter submitForm({})", contact);
 
         if (br.hasErrors()) {
@@ -67,6 +69,7 @@ public class ContactController {
         } else {
             contact = svc.save(contact);
             log.debug("Contact saved with id {}", contact.getId());
+            ra.addFlashAttribute("flash", "New contact created for " + contact.getName());
             return "redirect:/hs/contacts";
         }
     }

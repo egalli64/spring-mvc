@@ -20,6 +20,8 @@
     <button>Search</button>
 </form>
 
+<p th:if="${flash}" th:text="${flash}"></p>
+
 <ul>
     <li th:each="contact : ${contacts}">
         <span th:text="${contact.name + ': ' + contact.phone}">Tony: 1234</span>
