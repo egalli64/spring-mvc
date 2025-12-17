@@ -107,4 +107,17 @@ public class ContactController {
             return "redirect:/hs/contacts";
         }
     }
+
+    /**
+     * Using GET to let the frontend use a link for it :(
+     */
+    @GetMapping("/contacts/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes ra) {
+        log.trace("Enter delete({})", id);
+
+        svc.delete(id);
+        ra.addFlashAttribute("flash", "Contact deleted");
+
+        return "redirect:/hs/contacts";
+    }
 }

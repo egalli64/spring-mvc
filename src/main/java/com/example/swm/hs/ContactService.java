@@ -46,4 +46,9 @@ public class ContactService {
 
         return repo.findContaining(sub);
     }
+
+    public void delete(Long id) {
+        log.trace("Enter delete({})", id);
+        repo.delete(id);
+    }
 }
