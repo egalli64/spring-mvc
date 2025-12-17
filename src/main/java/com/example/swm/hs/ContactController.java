@@ -50,8 +50,8 @@ public class ContactController {
     }
 
     @GetMapping("/contacts/new")
-    public String showForm(Model model) {
-        log.trace("Enter showForm()");
+    public String showNew(Model model) {
+        log.trace("Enter showNew()");
         model.addAttribute("contact", new Contact());
         return "hs/new";
     }
@@ -61,8 +61,8 @@ public class ContactController {
      * Post - Redirect - Get (in case of success)
      */
     @PostMapping("/contacts/new")
-    public String submitForm(@Valid @ModelAttribute Contact contact, BindingResult br, RedirectAttributes ra) {
-        log.trace("Enter submitForm({})", contact);
+    public String submitNew(@Valid @ModelAttribute Contact contact, BindingResult br, RedirectAttributes ra) {
+        log.trace("Enter submitNew({})", contact);
 
         if (br.hasErrors()) {
             return "hs/new";
@@ -75,10 +75,36 @@ public class ContactController {
     }
 
     @GetMapping("/contacts/{id}")
-    public String viewContact(@PathVariable Long id, Model model) {
-        log.trace("Enter viewContact({})", id);
+    public String view(@PathVariable Long id, Model model) {
+        log.trace("Enter view({})", id);
 
         model.addAttribute("contact", svc.getContact(id).orElse(null));
         return "hs/view";
+    }
+
+    @GetMapping("/contacts/{id}/edit")
+    public String showEdit(@PathVariable Long id, Model model) {
+        log.trace("Enter showEdit({})", id);
+
+        model.addAttribute("contact", svc.getContact(id).orElse(null));
+        return "hs/edit";
+    }
+
+    /**
+     * Post - Validate - Redisplay (if validation fails)
+     * Post - Redirect - Get (in case of success)
+     */
+    @PostMapping("/contacts/{id}/edit")
+    public String submitEdit(@Valid @ModelAttribute Contact contact, BindingResult br, RedirectAttributes ra) {
+        log.trace("Enter submitEdit({})", contact);
+
+        if (br.hasErrors()) {
+            return "hs/edit";
+        } else {
+            contact = svc.save(contact);
+            log.debug("Contact changes saved for id {}", contact.getId());
+            ra.addFlashAttribute("flash", "Details changed for " + contact.getName());
+            return "redirect:/hs/contacts";
+        }
     }
 }
