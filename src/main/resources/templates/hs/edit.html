@@ -1,0 +1,41 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Contact</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+</head>
+<body>
+<h1>Edit Contact</h1>
+
+<div th:if="${contact != null}">
+    <form th:action="@{/hs/contacts/{id}/edit(id=${contact.id})}" th:object="${contact}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <p>
+            <label>Name <input placeholder="Name" th:field="*{name}"></label>
+            <span th:errors="*{name}"></span>
+        </p>
+        <p>
+            <label>Phone <input placeholder="Phone" th:field="*{phone}"></label>
+            <span th:errors="*{phone}"></span>
+        </p>
+        <button>Save</button>
+    </form>
+</div>
+
+<div th:if="${contact == null}">
+    <span>No contact information available</span>
+</div>
+
+<p>
+    <a href="/hs/contacts">Contacts</a>
+</p>
+
+</body>
+</html>
