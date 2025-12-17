@@ -17,11 +17,11 @@
 <form action="/hs/contacts/new" th:object="${contact}" method="post">
     <p>
         <label>Name <input placeholder="Name" th:field="*{name}"></label>
-        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <span th:errors="*{name}"></span>
     </p>
     <p>
         <label>Phone <input placeholder="Phone" th:field="*{phone}"></label>
-        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+        <span th:errors="*{phone}"></span>
     </p>
     <button>Save</button>
 </form>
