@@ -1,0 +1,27 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System: htmx
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hx-get</title>
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+    <script src="/js/vendor/htmx.min.js"></script>
+</head>
+<body>
+<h1>hx-get</h1>
+
+<h2>A button changing its own content</h2>
+<button hx-get="/hx/get-text">Get the server date/time</button>
+
+<h2>A button changing the content of another element</h2>
+<button hx-get="/hx/get-text" hx-target="#target">Get the server date/time</button>
+
+<p id="target">The response goes here</p>
+
+<a href="index.html">Back home</a>
+</body>
+</html>
