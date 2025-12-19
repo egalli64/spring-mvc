@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.time.LocalDateTime;
 
 /**
- * A simple Spring Web MVC Controller
+ * A simple Spring Web MVC Controller for htmx
  */
 @Controller
 @RequestMapping("/hx")
-public class HelloController {
-    private static final Logger log = LoggerFactory.getLogger(HelloController.class);
+public class HxController {
+    private static final Logger log = LoggerFactory.getLogger(HxController.class);
 
-    @GetMapping("/hello")
+    @GetMapping("/get-text")
     @ResponseBody
-    public String hello() {
-        log.trace("Enter hello()");
+    public String plainGetter() {
+        log.trace("Enter plainGetter()");
 
         return LocalDateTime.now().toString();
     }
