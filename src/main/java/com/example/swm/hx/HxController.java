@@ -29,4 +29,13 @@ public class HxController {
 
         return LocalDateTime.now().toString();
     }
+
+
+    @GetMapping("/get-paragraph")
+    @ResponseBody
+    public String paragraphGetter() {
+        log.trace("Enter paragraphGetter()");
+
+        return String.format("<p>%s</p>", LocalDateTime.now());
+    }
 }
