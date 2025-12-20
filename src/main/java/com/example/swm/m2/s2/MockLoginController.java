@@ -1,6 +1,6 @@
 /*
- * Spring Boot Web MVC tutorial 
- * 
+ * Spring Boot Web MVC tutorial
+ *
  * https://github.com/egalli64/spring-mvc
  */
 package com.example.swm.m2.s2;
@@ -23,7 +23,7 @@ public class MockLoginController {
     public String user(Model model) {
         log.trace("Enter user()");
 
-        // get the user, extract the required information, put them in the model
+        // TODO: get the user, extract the required information, put them in the model
 
         model.addAttribute("message", "Hello");
         model.addAttribute("user", new User("Bob", "bob@example.com"));
@@ -34,8 +34,10 @@ public class MockLoginController {
     public String login(@ModelAttribute User user) {
         log.trace("Enter login({})", user);
 
-        if (user.getPassword() == null) {
-            log.warn("Bad, we need to validate user!");
+        // no validation, we have no guarantee of any user field being "good"
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+            log.error("Bad, we need to validate user!");
+            throw new IllegalArgumentException("Please enter username and password!");
         } else {
             log.info("We use HTTP POST for sensitive data");
         }
