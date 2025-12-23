@@ -32,7 +32,7 @@ public class HxContactController {
     public String home() {
         log.trace("Enter home()");
 
-        return "/hx/contacts";
+        return "/hx/get-form";
     }
 
     @GetMapping("/contacts")
