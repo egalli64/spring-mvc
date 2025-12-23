@@ -28,13 +28,6 @@ public class HxContactController {
         this.svc = svc;
     }
 
-    @GetMapping("/")
-    public String home() {
-        log.trace("Enter home()");
-
-        return "/hx/get-form";
-    }
-
     @GetMapping("/contacts")
     @ResponseBody
     public String contacts(@RequestParam(required = false) String query) {
