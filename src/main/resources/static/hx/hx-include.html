@@ -1,0 +1,30 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System: htmx
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+    <script src="/js/vendor/htmx.min.js"></script>
+</head>
+<body>
+<h1>Contacts</h1>
+
+<div>
+    <label for="query">Query contacts with name containing</label>
+    <input id="query" name="query">
+    <button hx-get="/hx/contacts" hx-target="#target" hx-include="#query">Search</button>
+</div>
+
+<div id="target">
+    <p>Here goes the search result</p>
+</div>
+
+<a href="index.html">Back home</a>
+</body>
+</html>
