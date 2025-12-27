@@ -1,0 +1,25 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System: htmx
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A htmx App</title>
+    <link rel="stylesheet" type="text/css" href="/css/simple.css">
+    <script src="/js/vendor/htmx.min.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <a th:href="@{/index.html}">Back home</a>
+    </nav>
+</header>
+
+<main th:insert="~{__${content}__}"></main>
+
+<footer>&copy; 2025 A htmx App</footer>
+</body>
+</html>
