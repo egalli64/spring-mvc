@@ -1,25 +1,19 @@
 /*
- * Spring Boot Web MVC tutorial 
- * 
+ * Spring Boot Web MVC tutorial
+ *
  * https://github.com/egalli64/spring-mvc
  */
 package com.example.swm.m2.s4;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @SessionAttributes("cart")
@@ -58,6 +52,17 @@ public class CartController {
 
         cart.remove(product);
         return "redirect:/m2/s4/shop";
+    }
+
+    @GetMapping("/checkout")
+    public String checkout(@SessionAttribute List<String> cart) {
+        log.trace("Enter checkout() for {}", cart);
+
+        if (cart == null || cart.isEmpty()) {
+            log.warn("No cart!");
+        }
+
+        return "m2/s4-checkout";
     }
 
     @GetMapping("/clear")
