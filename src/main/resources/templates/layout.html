@@ -15,7 +15,8 @@
 
 <header>
     <nav>
-        <a th:href="@{/index.html}">Back home</a>
+        <a th:href="@{/index.html}">MVC home</a>
+        <a th:href="@{/hx/}">Thymeleaf/htmx home</a>
     </nav>
 </header>
 
@@ -23,6 +24,9 @@
     <div th:replace="~{::content}"></div>
 </main>
 
-<footer>&copy; 2025 A Thymeleaf/htmx App</footer>
+<footer>
+    <hr>
+    <p>&copy; 2025 A Thymeleaf/htmx App</p>
+</footer>
 </body>
 </html>
