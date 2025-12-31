@@ -1,0 +1,20 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System: htmx
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+
+<div th:fragment="content">
+    <h1>hx-get</h1>
+
+    <h2>A button changing its own content</h2>
+    <button hx-get="/hx/get-text">Get the server date/time</button>
+
+    <h2>A button changing the content of another element</h2>
+    <button hx-get="/hx/get-text" hx-target="#target">Get the server date/time</button>
+
+    <p id="target">The response goes here</p>
+</div>
+
+</html>
