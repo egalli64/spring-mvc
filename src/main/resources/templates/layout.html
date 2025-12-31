@@ -4,22 +4,25 @@
     https://github.com/egalli64/spring-mvc
  -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout">
 <head>
     <meta charset="UTF-8">
-    <title>A htmx App</title>
+    <title>A Thymeleaf/htmx App</title>
     <link rel="stylesheet" type="text/css" href="/css/simple.css">
     <script src="/js/vendor/htmx.min.js"></script>
 </head>
 <body>
+
 <header>
     <nav>
         <a th:href="@{/index.html}">Back home</a>
     </nav>
 </header>
 
-<main th:insert="~{__${content}__}"></main>
+<main>
+    <div th:replace="~{::content}"></div>
+</main>
 
-<footer>&copy; 2025 A htmx App</footer>
+<footer>&copy; 2025 A Thymeleaf/htmx App</footer>
 </body>
 </html>
