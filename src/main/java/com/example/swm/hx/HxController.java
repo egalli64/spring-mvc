@@ -27,6 +27,11 @@ public class HxController {
         return "hx/home";
     }
 
+    @GetMapping("/hx-get")
+    public String getHxGet() {
+        return "hx/hx-get";
+    }
+
     @GetMapping("/get-text")
     @ResponseBody
     public String plainGetter() {
