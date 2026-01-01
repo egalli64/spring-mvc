@@ -24,12 +24,20 @@ public class HxController {
 
     @GetMapping("/")
     public String home() {
+        log.trace("Enter home()");
         return "hx/home";
     }
 
     @GetMapping("/hx-get")
     public String getHxGet() {
+        log.trace("Enter getHxGet()");
         return "hx/hx-get";
+    }
+
+    @GetMapping("/hx-swap")
+    public String getHxSwap() {
+        log.trace("Enter getHxSwap()");
+        return "hx/hx-swap";
     }
 
     @GetMapping("/get-text")
