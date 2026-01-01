@@ -1,0 +1,28 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System: htmx
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout}">
+
+<div th:fragment="content">
+    <h1>hx-trigger</h1>
+
+    <h2>Trigger on mouse enter event</h2>
+    <button hx-get="/hx/get-paragraph" hx-target="#t1" hx-trigger="mouseenter">Get it!</button>
+    <div id="t1"><p>The response goes here</p></div>
+
+    <h2>Trigger on any keyup (when button has focus)</h2>
+    <button hx-get="/hx/get-paragraph" hx-target="#t2" hx-trigger="keyup">Get it!</button>
+    <div id="t2"><p>The response goes here</p></div>
+
+    <h2>Trigger on click or alt-k keyup (when button has focus)</h2>
+    <button hx-get="/hx/get-paragraph" hx-target="#t3" hx-trigger="click, keyup[altKey && key == 'k']">Get it!</button>
+    <div id="t3"><p>The response goes here</p></div>
+
+    <h2>Trigger on alt-k keyup (focus on body)</h2>
+    <button hx-get="/hx/get-paragraph" hx-target="#t4" hx-trigger="keyup[altKey && key == 'k'] from:body">Useless</button>
+    <div id="t4"><p>The response goes here</p></div>
+</div>
+
+</html>

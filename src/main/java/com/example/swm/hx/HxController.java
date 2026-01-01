@@ -40,6 +40,12 @@ public class HxController {
         return "hx/hx-swap";
     }
 
+    @GetMapping("/hx-trigger")
+    public String getHxTrigger() {
+        log.trace("Enter getHxTrigger()");
+        return "hx/hx-trigger";
+    }
+
     @GetMapping("/get-text")
     @ResponseBody
     public String plainGetter() {
