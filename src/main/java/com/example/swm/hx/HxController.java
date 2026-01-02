@@ -40,16 +40,22 @@ public class HxController {
         return "hx/hx-swap";
     }
 
+    @GetMapping("/hx-trigger")
+    public String getHxTrigger() {
+        log.trace("Enter getHxTrigger()");
+        return "hx/hx-trigger";
+    }
+
     @GetMapping("/get-form")
     public String getForm() {
         log.trace("Enter getForm()");
         return "hx/get-form";
     }
 
-    @GetMapping("/hx-trigger")
-    public String getHxTrigger() {
-        log.trace("Enter getHxTrigger()");
-        return "hx/hx-trigger";
+    @GetMapping("/hx-include")
+    public String getHxInclude() {
+        log.trace("Enter getHxInclude()");
+        return "hx/hx-include";
     }
 
     @GetMapping("/get-text")
