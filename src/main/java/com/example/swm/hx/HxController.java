@@ -40,6 +40,12 @@ public class HxController {
         return "hx/hx-swap";
     }
 
+    @GetMapping("/get-form")
+    public String getForm() {
+        log.trace("Enter getForm()");
+        return "hx/get-form";
+    }
+
     @GetMapping("/hx-trigger")
     public String getHxTrigger() {
         log.trace("Enter getHxTrigger()");
