@@ -1,0 +1,22 @@
+<!--
+    Spring Boot Web MVC tutorial - Hypermedia System: htmx
+
+    https://github.com/egalli64/spring-mvc
+ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout}">
+
+<div th:fragment="content">
+    <h1>Contacts (hx-include)</h1>
+
+    <div>
+        <label for="query">Query contacts with name containing</label>
+        <input id="query" name="query">
+        <button hx-get="/hx/contacts" hx-target="#target" hx-include="#query">Search</button>
+    </div>
+
+    <div id="target">
+        <p>Here goes the search result</p>
+    </div>
+</div>
+
+</html>
