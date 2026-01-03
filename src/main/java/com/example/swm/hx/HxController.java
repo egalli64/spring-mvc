@@ -29,20 +29,20 @@ public class HxController {
     }
 
     @GetMapping("/hx-get")
-    public String getHxGet() {
-        log.trace("Enter getHxGet()");
+    public String hxGet() {
+        log.trace("Enter hxGet()");
         return "hx/hx-get";
     }
 
     @GetMapping("/hx-swap")
-    public String getHxSwap() {
-        log.trace("Enter getHxSwap()");
+    public String hxSwap() {
+        log.trace("Enter hxSwap()");
         return "hx/hx-swap";
     }
 
     @GetMapping("/hx-trigger")
-    public String getHxTrigger() {
-        log.trace("Enter getHxTrigger()");
+    public String hxTrigger() {
+        log.trace("Enter hxTrigger()");
         return "hx/hx-trigger";
     }
 
@@ -53,9 +53,15 @@ public class HxController {
     }
 
     @GetMapping("/hx-include")
-    public String getHxInclude() {
-        log.trace("Enter getHxInclude()");
+    public String hxInclude() {
+        log.trace("Enter hxInclude()");
         return "hx/hx-include";
+    }
+
+    @GetMapping("/hx-vals")
+    public String hxVals() {
+        log.trace("Enter hxVals()");
+        return "hx/hx-vals";
     }
 
     @GetMapping("/get-text")
@@ -65,7 +71,6 @@ public class HxController {
 
         return LocalDateTime.now().toString();
     }
-
 
     @GetMapping("/get-paragraph")
     @ResponseBody
